@@ -1,0 +1,133 @@
+1.USE keyword is used to select a ___________
+Database
+
+
+2. User() fucntion returns the current users user name and ___________
+Host name
+
+
+3. How do I find out all databases starting with ‘test‘?
+Show databases like '%test%'
+
+
+4. How can we get the number of records or rows in a table?
+we could use COUNT(*)
+
+
+
+5. SQL - Which of the following ways are the correct way to get the current date?
+Please complete the below questions using the image given.
+6. Write an SQL query to print the FIRST_NAME from Worker table after replacing ‘a’ with ‘A’.
+SELECT
+REPLACE(FIRST_NAME, 'a', 'A')
+FROM EMPLOYEES;
+
+7. Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
+select * from Workers
+ORDER BY FIRST_NAME, DEPTARTMENT DESC;
+
+
+8. Write an SQL query to print details of workers excluding first names, “Vipul” and “Satish” from Worker table.
+Select * from Worker where FIRST_NAME not in ('Vipul', 'Satish');
+
+
+9. Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
+Select * from Worker where FIRST_NAME like '______h%'; 
+
+
+10. Please answer the below questions using the image given
+11. Write a query find number of employees whose DOB is between 02/05/1970 to 31/12/1975 and are grouped according to gender.
+SELECT COUNT(*)
+SELECT  Gender, DOB FROM EmployeeInfo  where DOB BETWEEN '02/05/1970' AND '31/12/1975';
+
+
+12. Write a query to fetch all employees who also hold the managerial position.
+SELECT E.EmpFname, E.EmpLname, P.EmpPosition
+
+FROM EmployeeInfo E INNER JOIN EmployeePosition  ON
+
+E.EmpID = P.EmpID AND P.EmpPosition IN ('Manager')
+
+
+13. Write a query to retrieve two minimum and maximum salaries from the EmployeePosition table.
+MAXIMUM SALARY:
+
+SELECT TOP 2 salary
+FROM EmployeePosition table
+ORDER BY salary DESC ;
+
+MINIMUM SALARY:
+
+SELECT TOP 2 salary
+FROM EmployeePosition table
+ORDER BY salary ASC ;
+
+
+14. Write a query to insert new data in Table EmployeeInfo.
+INSERT INTO EmployeeInfo
+VALUES ('1', 'Dinesh',' SM', 'HR','P1','Hyderabad(HYD)','14/09/2000';
+
+
+15. Write a query to delete a column from EmployeePosition table where employee position is equal to Lead.
+ delete from EmployeePosition where EmpPosition = 'Lead';
+
+
+16. Kindly answer the below questions using the image given
+17. Write query for FULL OUTER JOIN
+SELECT 
+  d.date, 
+  i.name, 
+  i.is_veg, 
+  d.price, 
+  d.units_sold 
+FROM daily_menu d 
+     FULL OUTER JOIN menu_items i 
+     ON d.item_id = i.item_id 
+
+
+18. Write query for RIGHT JOIN
+SELECT 
+  d.date, 
+  i.name, 
+  i.is_veg, 
+  d.price, 
+  d.units_sold 
+FROM daily_menu d 
+     RIGHT JOIN menu_items i 
+     ON d.item_id = i.item_id 
+
+
+19. Please answer the below questions using the images given
+20. Write an SQL query to find the maximum, minimum, and average salary of the employees.
+select max(salary), avg(salary), min(salary) from EmployeeSalary
+
+
+21. Write an SQL query to fetch the EmpIds that are present in both the tables – ‘EmployeeDetails’ and ‘EmployeeSalary.
+SELECT EmpId FROM EmployeeDetails
+UNION 
+SELECT EmpId FROM EmployeeSalary;
+
+
+22. Write an SQL query to find the count of the total occurrences of a particular character – ‘n’ in the FullName field.
+SELECT FullName, 
+LENGTH(FullName) - LENGTH(REPLACE(FullName, 'n', ''))
+FROM EmployeeDetails;
+
+23. Write an SQL query to fetch employee names having a salary greater than or equal to 5000 and less than or equal to 10000.
+SELECT EmpName, Salary From Employee WHERE Salary >= 5000 AND Salary <= 10000
+
+
+24. Write an SQL query to fetch project-wise count of employees sorted by project’s count in descending order.
+SELECT Project, count(EmpId) EmpProjectCount
+FROM EmployeeSalary
+GROUP BY Project
+ORDER BY EmpProjectCount DESC;
+
+25. Write an SQL query to fetch duplicate records from EmployeeDetails (without considering the primary key – EmpId).
+SELECT FullName, ManagerId, DateOfJoining, City, COUNT(*)
+FROM EmployeeDetails
+GROUP BY FullName, ManagerId, DateOfJoining, City
+HAVING COUNT(*) > 1;
+
+
+
